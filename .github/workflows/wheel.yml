@@ -82,8 +82,7 @@ jobs:
       - name: Build sdist archive
         working-directory: python
         run: |
-          python -m pip install setuptools
-          sh build_sdist.sh
+          python -m build --sdist
 
       - name: Fetch sdist archive
         uses: tj-actions/glob@2deae40528141fc53131606d56b4e4ce2a486b29 # v22.0.2

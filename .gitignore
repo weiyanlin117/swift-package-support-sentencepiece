@@ -21,14 +21,12 @@ Makefile.in
 /missing
 /stamp-h1
 /libtool
-/config.h
 /config.status
 /autogen.sh
 /ltmain.sh
 
 CMakeFiles
 CMakeCache.txt
-config.h
 sentencepiece.pc
 CPackConfig.cmake
 CTestTestfile.cmake

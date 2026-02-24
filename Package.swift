@@ -7,8 +7,8 @@ let package = Package(
     name: "sentencepiece",
     products: [
         .library(
-            name: "sentencepiece_cpp",
-            targets: ["sentencepiece_cpp"]
+            name: "C_sentencepiece",
+            targets: ["C_sentencepiece"]
         ),
         .executable(name: "spm_encode", targets: ["spm_encode"]),
         .executable(name: "spm_decode", targets: ["spm_decode"]),
@@ -18,7 +18,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "sentencepiece_cpp",
+            name: "C_sentencepiece",
             path: ".",
             exclude: [
                 "python",
@@ -144,7 +144,7 @@ let package = Package(
         // Executable targets
         .executableTarget(
             name: "spm_encode",
-            dependencies: ["sentencepiece_cpp"],
+            dependencies: ["C_sentencepiece"],
             path: "src",
             sources: ["spm_encode_main.cc"],
             cxxSettings: [
@@ -159,7 +159,7 @@ let package = Package(
         ),
         .executableTarget(
             name: "spm_decode",
-            dependencies: ["sentencepiece_cpp"],
+            dependencies: ["C_sentencepiece"],
             path: "src",
             sources: ["spm_decode_main.cc"],
             cxxSettings: [
@@ -174,7 +174,7 @@ let package = Package(
         ),
         .executableTarget(
             name: "spm_normalize",
-            dependencies: ["sentencepiece_cpp"],
+            dependencies: ["C_sentencepiece"],
             path: "src",
             sources: ["spm_normalize_main.cc"],
             cxxSettings: [
@@ -189,7 +189,7 @@ let package = Package(
         ),
         .executableTarget(
             name: "spm_train",
-            dependencies: ["sentencepiece_cpp"],
+            dependencies: ["C_sentencepiece"],
             path: "src",
             sources: ["spm_train_main.cc"],
             cxxSettings: [
@@ -204,7 +204,7 @@ let package = Package(
         ),
         .executableTarget(
             name: "spm_export_vocab",
-            dependencies: ["sentencepiece_cpp"],
+            dependencies: ["C_sentencepiece"],
             path: "src",
             sources: ["spm_export_vocab_main.cc"],
             cxxSettings: [
@@ -220,7 +220,7 @@ let package = Package(
         // Test target
         .executableTarget(
             name: "spm_test",
-            dependencies: ["sentencepiece_cpp"],
+            dependencies: ["C_sentencepiece"],
             path: "src",
             sources: [
                 "test_main.cc",
